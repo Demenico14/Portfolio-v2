@@ -80,21 +80,30 @@ export default function HeroSection() {
 
         {/* Scroll button — always pinned to the bottom of the viewport */}
         <div className="flex justify-center pb-10 shrink-0">
-          <motion.a
-            href="#services"
+          <motion.button
+            type="button"
             aria-label="Scroll to services"
-            initial={{ opacity: 0, y: 12 }}
+            onClick={() => {
+              document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.5, ease: "easeOut" }}
-            className="group flex flex-col items-center gap-2"
+            transition={{ delay: 1.0, duration: 0.45, ease: "easeOut" }}
+            className="group flex flex-col items-center gap-2 cursor-pointer"
           >
-            <span className="font-sans text-xs tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors duration-200">
+            <span className="font-sans text-xs tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors duration-150">
               Scroll
             </span>
-            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-200">
-              <ChevronDown className="size-4 text-white/60 group-hover:text-white transition-colors duration-200 animate-bounce" />
+            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-150">
+              <motion.span
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+                className="flex"
+              >
+                <ChevronDown className="size-4 text-white/60 group-hover:text-white transition-colors duration-150" />
+              </motion.span>
             </span>
-          </motion.a>
+          </motion.button>
         </div>
       </section>
     </main>
