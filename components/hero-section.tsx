@@ -69,15 +69,23 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="flex justify-center pb-10">
-          <a
+        {/* Scroll button */}
+        <div className="flex justify-center pb-12">
+          <motion.a
             href="#services"
             aria-label="Scroll to services"
-            className="flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.5, ease: "easeOut" }}
+            className="group flex flex-col items-center gap-2"
           >
-            <ChevronDown className="size-5 animate-bounce" />
-          </a>
+            <span className="font-sans text-xs tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors duration-200">
+              Scroll
+            </span>
+            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-200">
+              <ChevronDown className="size-4 text-white/60 group-hover:text-white transition-colors duration-200 animate-bounce" />
+            </span>
+          </motion.a>
         </div>
       </section>
     </main>

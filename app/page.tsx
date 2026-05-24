@@ -13,7 +13,7 @@ import SiteFooter from "@/components/site-footer";
 import { useState } from "react";
 
 export default function Home() {
-  const [colorPreset, setColorPreset] = useState<string[]>(["#FCF5EE", "#FFC4C4", "#EE6983", "#850E35"]);
+  const [colorPreset, setColorPreset] = useState<string[]>(["#EEF4FF", "#BFDBFE", "#3B82F6", "#1E40AF"]);
 
   return (
     <div className="relative w-full bg-background text-foreground">
