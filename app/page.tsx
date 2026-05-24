@@ -16,7 +16,7 @@ export default function Home() {
   const [colorPreset, setColorPreset] = useState<string[]>(["#EEF4FF", "#BFDBFE", "#3B82F6", "#1E40AF"]);
 
   return (
-    <div className="relative w-full bg-background text-foreground">
+    <div className="relative w-full overflow-x-hidden bg-background text-foreground">
       {/* Animated Background — covers only the hero viewport */}
       <div className="absolute inset-x-0 top-0 h-svh z-0 pointer-events-none">
         <FloatingLines
