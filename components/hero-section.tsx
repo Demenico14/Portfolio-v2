@@ -10,9 +10,18 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 export default function HeroSection() {
   return (
     <main className="overflow-x-hidden">
-      <section id="home">
-        <div className="py-28 md:pb-36 lg:pb-44 lg:pt-72">
-          <div className="relative mx-auto flex max-w-7xl flex-col px-6 lg:block lg:px-12">
+      {/*
+        min-h-svh: uses the "small viewport" unit — accounts for iOS Safari's
+        dynamic toolbar so the hero never gets taller than the visible area.
+        flex + flex-col lets us push the scroll button to the bottom with mt-auto.
+      */}
+      <section
+        id="home"
+        className="flex min-h-svh flex-col"
+      >
+        {/* Hero content — grows to fill available space, centres vertically */}
+        <div className="flex flex-1 items-center">
+          <div className="relative mx-auto w-full max-w-7xl px-6 pt-28 pb-10 lg:px-12 lg:pt-36">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -69,8 +78,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll button */}
-        <div className="flex justify-center pb-12">
+        {/* Scroll button — always pinned to the bottom of the viewport */}
+        <div className="flex justify-center pb-10 shrink-0">
           <motion.a
             href="#services"
             aria-label="Scroll to services"

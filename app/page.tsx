@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="relative w-full bg-background text-foreground">
       {/* Animated Background — covers only the hero viewport */}
-      <div className="absolute inset-x-0 top-0 h-screen z-0 pointer-events-none">
+      <div className="absolute inset-x-0 top-0 h-svh z-0 pointer-events-none">
         <FloatingLines
           linesGradient={colorPreset}
           enabledWaves={["bottom", "middle", "top"]}
