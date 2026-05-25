@@ -3,7 +3,10 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { staggerContainer, fadeUp } from "@/lib/motion";
+import { Button } from "@/components/ui/button";
 
 const floatingCards = [
   {
@@ -275,6 +278,16 @@ export default function ProjectsSection() {
           <p className="max-w-sm text-sm text-foreground/55 leading-relaxed font-sans">
             A mobile app helping Zimbabweans ace their VID driving test — with mock exams, daily challenges, and real road rules.
           </p>
+          <Button
+            asChild
+            size="lg"
+            className="mt-2 h-11 rounded-full pl-6 pr-4 text-sm font-semibold bg-foreground text-background hover:bg-foreground/85"
+          >
+            <Link href="/zimdrive">
+              <span>View ZimDrive</span>
+              <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </Button>
         </motion.div>
 
       </div>
