@@ -13,12 +13,12 @@ import SiteFooter from "@/components/site-footer";
 import { useState } from "react";
 
 export default function Home() {
-  const [colorPreset, setColorPreset] = useState<string[]>(["#EEF4FF", "#BFDBFE", "#3B82F6", "#1E40AF"]);
+  const [colorPreset, setColorPreset] = useState<string[]>(["#FCF5EE", "#FFC4C4", "#EE6983", "#850E35"]);
 
   return (
-    <div className="relative w-full overflow-x-hidden bg-background text-foreground">
+    <div className="relative w-full bg-background text-foreground">
       {/* Animated Background — covers only the hero viewport */}
-      <div className="absolute inset-x-0 top-0 h-svh z-0 pointer-events-none">
+      <div className="absolute inset-x-0 top-0 h-screen z-0 pointer-events-none">
         <FloatingLines
           linesGradient={colorPreset}
           enabledWaves={["bottom", "middle", "top"]}
