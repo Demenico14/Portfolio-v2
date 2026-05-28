@@ -90,3 +90,20 @@
   background-image: radial-gradient(oklch(0.65 0 0 / 0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* Long-form legal/content typography */
+.legal-prose h2 {
+  @apply font-serif text-xl font-bold tracking-tight text-foreground;
+}
+.legal-prose h3 {
+  @apply mt-6 mb-2 font-serif text-base font-semibold text-foreground;
+}
+.legal-prose p {
+  @apply mt-3 text-sm leading-relaxed text-foreground/70;
+}
+.legal-prose h2 + p {
+  @apply mt-4;
+}
+.legal-prose ul {
+  @apply mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground/70 marker:text-foreground/30;
+}
