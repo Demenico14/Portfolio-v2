@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, BookOpen, ClipboardList, MapPin, Zap, TrendingUp, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ZimDriveHeader } from "@/components/zimdrive-header";
+import ZimDriveFooter from "@/components/zimdrive-footer";
 
 // ─── Motion helpers ───────────────────────────────────────────────────────────
 const fadeUp = {
@@ -520,6 +521,8 @@ export default function ZimDrivePage() {
           </motion.div>
         </div>
       </section>
+
+      <ZimDriveFooter />
 
     </div>
   );

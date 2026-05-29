@@ -107,3 +107,10 @@
 .legal-prose ul {
   @apply mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground/70 marker:text-foreground/30;
 }
+.legal-prose a {
+  @apply font-medium underline underline-offset-2;
+}
+/* ZimDrive variant — orange accent links */
+.legal-prose-zd a {
+  color: #f97316;
+}
