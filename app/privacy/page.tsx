@@ -4,9 +4,10 @@ import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Modern Digital Labs",
+  title: "Privacy Policy",
   description:
     "How Modern Digital Labs (MDL) collects, uses, stores, protects, and shares your information across our website and WhatsApp Business channels.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPolicyPage() {

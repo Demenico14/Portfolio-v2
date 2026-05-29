@@ -4,9 +4,10 @@ import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions — Modern Digital Labs",
+  title: "Terms and Conditions",
   description:
     "The Terms and Conditions governing your use of services provided by Modern Digital Labs (MDL), including web development, domains, hosting, and support.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
