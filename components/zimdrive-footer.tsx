@@ -4,6 +4,7 @@ import Image from "next/image";
 const links = [
   { label: "Privacy Policy", href: "/zimdrive/privacy" },
   { label: "Terms & Conditions", href: "/zimdrive/terms" },
+  { label: "Delete Account", href: "/zimdrive/delete-account" },
   { label: "Modern Digital Labs", href: "/" },
 ];
 
