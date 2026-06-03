@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ZimDriveHeader } from "@/components/zimdrive-header";
 import ZimDriveFooter from "@/components/zimdrive-footer";
+import ZimDriveDisclaimer from "@/components/zimdrive-disclaimer";
 
 export const metadata: Metadata = {
   title: "ZimDrive Privacy Policy",
@@ -38,6 +39,8 @@ export default function ZimDrivePrivacyPage() {
             </div>
           </dl>
         </div>
+
+        <ZimDriveDisclaimer />
 
         <div className="legal-prose legal-prose-zd space-y-10">
           <section>
