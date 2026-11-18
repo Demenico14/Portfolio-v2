@@ -46,14 +46,11 @@ export default function WhyMdlSection() {
           className="flex flex-col gap-4 mb-16 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-              Why Choose MDL
-            </motion.span>
             <motion.h2 variants={fadeUp} className="font-serif text-4xl font-bold text-balance text-foreground md:text-5xl xl:text-6xl">
               Why Work<br />With MDL?
             </motion.h2>
           </div>
-          <motion.p variants={fadeUp} className="max-w-xs text-sm text-foreground/50 leading-relaxed md:text-right">
+          <motion.p variants={fadeUp} className="max-w-xs text-sm text-foreground/65 leading-relaxed md:text-right">
             Our approach is simple: build products that are functional, modern, and easy to use.
           </motion.p>
         </motion.div>
@@ -82,13 +79,13 @@ export default function WhyMdlSection() {
                 <h3 className="font-serif text-xl font-semibold text-foreground md:text-2xl group-hover:text-foreground transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="block md:hidden text-sm text-foreground/50 leading-relaxed">
+                <p className="block md:hidden text-sm text-foreground/65 leading-relaxed">
                   {description}
                 </p>
               </div>
 
               {/* Description — right-aligned, desktop only */}
-              <p className="hidden md:block text-sm text-foreground/50 leading-relaxed text-right max-w-xs">
+              <p className="hidden md:block text-sm text-foreground/65 leading-relaxed text-right max-w-xs">
                 {description}
               </p>
             </motion.div>

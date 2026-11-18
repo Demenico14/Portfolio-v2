@@ -66,7 +66,7 @@ export function ZimDriveHeader() {
                 ZimDrive
               </span>
               <span className="hidden sm:block h-4 w-px bg-foreground/20" />
-              <span className="hidden sm:block font-sans text-xs tracking-widest uppercase text-foreground/50">
+              <span className="hidden sm:block font-sans text-xs tracking-widest uppercase text-foreground/65">
                 by MDL
               </span>
             </Link>

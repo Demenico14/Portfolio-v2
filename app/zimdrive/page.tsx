@@ -117,13 +117,13 @@ function FeatureCard({ icon, title, desc }: { icon: React.ReactNode; title: stri
       className="rounded-2xl border border-border bg-card p-6 flex flex-col gap-3 hover:shadow-md transition-shadow duration-200"
     >
       <div
-        className="flex size-10 items-center justify-center rounded-xl text-white"
+        className="flex size-10 items-center justify-center rounded-xl text-[#0D1B2A]"
         style={{ background: "#F97316" }}
       >
         {icon}
       </div>
       <h3 className="font-serif text-base font-bold text-foreground">{title}</h3>
-      <p className="text-sm text-foreground/55 leading-relaxed font-sans">{desc}</p>
+      <p className="text-sm text-foreground/65 leading-relaxed font-sans">{desc}</p>
     </motion.div>
   );
 }
@@ -150,14 +150,6 @@ export default function ZimDrivePage() {
             animate="visible"
             className="flex flex-col items-start"
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-flex items-center gap-1.5 mb-5 px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest"
-              style={{ background: "#F9731615", color: "#F97316" }}
-            >
-              <span className="inline-block size-1.5 rounded-full animate-pulse" style={{ background: "#F97316" }} aria-hidden="true" />
-              Zimbabwe VID Test Prep
-            </motion.span>
 
             {/* Plain h1 (not animated) so it is visible in the server-rendered HTML and paints immediately for LCP */}
             <h1 className="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-balance text-foreground">
@@ -177,7 +169,7 @@ export default function ZimDrivePage() {
             >
               <Button
                 size="lg"
-                className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-white"
+                className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-[#0D1B2A]"
                 style={{ background: "#F97316" }}
                 asChild
               >
@@ -239,7 +231,7 @@ export default function ZimDrivePage() {
                       className="object-contain"
                     />
                   </div>
-                  <p className="text-[10px] font-sans font-semibold uppercase tracking-widest text-zinc-400 leading-none mb-0.5">{b.sub}</p>
+                  <p className="text-[11px] font-sans font-semibold uppercase tracking-widest text-zinc-500 leading-none mb-0.5">{b.sub}</p>
                   <p className="text-sm font-serif font-bold text-zinc-800 leading-tight">{b.label}</p>
                 </motion.div>
               </motion.div>
@@ -278,13 +270,10 @@ export default function ZimDrivePage() {
             viewport={{ once: true, amount: 0.1 }}
             className="mb-16 text-center"
           >
-            <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-              Everything you need
-            </motion.span>
             <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl font-bold text-balance text-foreground">
               Built around the VID test
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-4 mx-auto max-w-lg text-base text-foreground/55 leading-relaxed font-sans">
+            <motion.p variants={fadeUp} className="mt-4 mx-auto max-w-lg text-base text-foreground/65 leading-relaxed font-sans">
               Every feature in ZimDrive is designed around one goal — helping you pass your Zimbabwe VID driving test.
             </motion.p>
           </motion.div>
@@ -315,9 +304,6 @@ export default function ZimDrivePage() {
             viewport={{ once: true, amount: 0.1 }}
             className="mb-16 text-center"
           >
-            <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-              App Preview
-            </motion.span>
             <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl font-bold text-balance text-foreground">
               See it in action
             </motion.h2>
@@ -345,7 +331,7 @@ export default function ZimDrivePage() {
                 </motion.div>
                 <div className="text-center">
                   <p className="text-sm font-serif font-semibold text-foreground">{p.label}</p>
-                  <p className="mt-1 text-xs text-foreground/50 leading-relaxed font-sans">{p.desc}</p>
+                  <p className="mt-1 text-xs text-foreground/65 leading-relaxed font-sans">{p.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -365,13 +351,10 @@ export default function ZimDrivePage() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
             >
-              <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-                Why ZimDrive
-              </motion.span>
               <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl font-bold text-balance text-foreground">
                 Designed for Zimbabwean learner drivers
               </motion.h2>
-              <motion.p variants={fadeUp} className="mt-5 text-base text-foreground/55 leading-relaxed font-sans max-w-lg">
+              <motion.p variants={fadeUp} className="mt-5 text-base text-foreground/65 leading-relaxed font-sans max-w-lg">
                 Most study apps are too generic. ZimDrive is built around the exact structure of the Zimbabwe VID test — so every question, sign, and rule you practice is directly relevant.
               </motion.p>
               <motion.ul variants={stagger} className="mt-8 flex flex-col gap-3.5">
@@ -381,7 +364,7 @@ export default function ZimDrivePage() {
                     variants={fadeUp}
                     className="flex items-start gap-3 text-sm font-sans text-foreground/70 leading-relaxed"
                   >
-                    <CheckCircle2 className="size-4 mt-0.5 shrink-0" style={{ color: "#F97316" }} />
+                    <CheckCircle2 className="size-4 mt-0.5 shrink-0" style={{ color: "#EA580C" }} />
                     {b}
                   </motion.li>
                 ))}
@@ -397,17 +380,10 @@ export default function ZimDrivePage() {
               className="rounded-3xl p-8 md:p-10 flex flex-col gap-6"
               style={{ background: "#0D1B2A" }}
             >
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit text-[11px] font-sans font-semibold uppercase tracking-widest"
-                style={{ background: "#F9731620", color: "#F97316" }}
-              >
-                <span className="inline-block size-1.5 rounded-full animate-pulse" style={{ background: "#F97316" }} />
-                Coming Soon on Google Play
-              </div>
               <h3 className="font-serif text-2xl font-bold text-white leading-snug">
                 Start preparing for your VID test today.
               </h3>
-              <p className="text-sm text-white/55 leading-relaxed font-sans">
+              <p className="text-sm text-white/65 leading-relaxed font-sans">
                 ZimDrive is launching soon on Google Play. Join the waitlist on WhatsApp and we&apos;ll message you the
                 moment it&apos;s live.
               </p>
@@ -415,7 +391,7 @@ export default function ZimDrivePage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   size="lg"
-                  className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-white w-fit"
+                  className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-[#0D1B2A] w-fit"
                   style={{ background: "#F97316" }}
                   asChild
                 >
@@ -430,7 +406,7 @@ export default function ZimDrivePage() {
                 {[["16", "Mock Tests"], ["109", "Road Signs"], ["25", "Questions/Test"]].map(([n, l]) => (
                   <div key={l} className="flex flex-col gap-0.5">
                     <span className="font-serif text-xl font-bold text-white">{n}</span>
-                    <span className="text-[11px] font-sans text-white/40 leading-tight">{l}</span>
+                    <span className="text-xs font-sans text-white/65 leading-tight">{l}</span>
                   </div>
                 ))}
               </div>
@@ -450,14 +426,6 @@ export default function ZimDrivePage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-flex items-center gap-1.5 mb-5 px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest"
-              style={{ background: "#F9731620", color: "#F97316" }}
-            >
-              <span className="inline-block size-1.5 rounded-full animate-pulse" style={{ background: "#F97316" }} />
-              Get Ready
-            </motion.span>
             <motion.h2
               variants={fadeUp}
               className="font-serif text-3xl md:text-4xl font-bold text-white text-balance"
@@ -466,14 +434,14 @@ export default function ZimDrivePage() {
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-5 text-base text-white/55 leading-relaxed font-sans"
+              className="mt-5 text-base text-white/65 leading-relaxed font-sans"
             >
               Coming soon to Google Play. Join the waitlist and be first to know when it launches.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 size="lg"
-                className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-white"
+                className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-[#0D1B2A]"
                 style={{ background: "#F97316" }}
                 asChild
               >

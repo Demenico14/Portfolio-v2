@@ -25,7 +25,7 @@ export default function ZimDriveFooter() {
             </div>
             <span className="font-serif font-bold text-base text-white">ZimDrive</span>
             <span className="h-4 w-px bg-white/20" />
-            <span className="font-sans text-xs text-white/40 tracking-widest uppercase">by MDL</span>
+            <span className="font-sans text-xs text-white/60 tracking-widest uppercase">by MDL</span>
           </Link>
 
           {/* Links */}
@@ -35,7 +35,7 @@ export default function ZimDriveFooter() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-xs text-white/40 hover:text-white transition-colors duration-150"
+                    className="text-xs text-white/60 hover:text-white transition-colors duration-150"
                   >
                     {label}
                   </Link>
@@ -45,7 +45,7 @@ export default function ZimDriveFooter() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-xs text-white/30">&copy; 2026 Modern Digital Labs. All rights reserved.</p>
+          <p className="text-xs text-white/60">&copy; 2026 Modern Digital Labs. All rights reserved.</p>
         </div>
       </div>
     </footer>

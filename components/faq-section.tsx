@@ -54,9 +54,6 @@ export default function FaqSection() {
           animate={inView ? "visible" : "hidden"}
           className="mb-16 text-center"
         >
-          <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-            FAQ
-          </motion.span>
           <motion.h2 variants={fadeUp} className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl">
             Frequently Asked Questions
           </motion.h2>
@@ -81,7 +78,7 @@ export default function FaqSection() {
                   <span className="font-serif font-semibold text-foreground text-base">{question}</span>
                   <ChevronDown
                     className={cn(
-                      "flex-shrink-0 size-5 text-foreground/40 transition-transform duration-200",
+                      "flex-shrink-0 size-5 text-foreground/60 transition-transform duration-200",
                       isOpen && "rotate-180"
                     )}
                   />

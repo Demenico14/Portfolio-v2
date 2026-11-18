@@ -58,13 +58,10 @@ export default function ServicesSection() {
             animate={inView ? "visible" : "hidden"}
             className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start"
           >
-            <motion.span variants={fadeUp} className="text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-              What We Do
-            </motion.span>
             <motion.h2 variants={fadeUp} className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl">
               Our Services
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/55 text-base leading-relaxed max-w-xs">
+            <motion.p variants={fadeUp} className="text-foreground/65 text-base leading-relaxed max-w-xs">
               Everything you need to establish and grow your digital presence — from development to deployment.
             </motion.p>
           </motion.div>
@@ -83,19 +80,19 @@ export default function ServicesSection() {
                 className="group flex items-start gap-6 py-8 first:pt-0 last:pb-0 hover:bg-transparent transition-colors duration-200"
               >
                 {/* Number */}
-                <span className="hidden sm:block font-mono text-xs text-foreground/25 mt-1 w-6 shrink-0 select-none">
+                <span className="hidden sm:block font-mono text-xs text-foreground/60 mt-1 w-6 shrink-0 select-none">
                   {number}
                 </span>
 
                 {/* Icon */}
                 <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card group-hover:border-foreground/20 transition-colors duration-300">
-                  <Icon className="size-4 text-foreground/50 group-hover:text-foreground/80 transition-colors duration-300" />
+                  <Icon className="size-4 text-foreground/65 group-hover:text-foreground/80 transition-colors duration-300" />
                 </div>
 
                 {/* Text */}
                 <div className="flex flex-col gap-1.5">
                   <h3 className="font-serif text-base font-semibold text-foreground">{title}</h3>
-                  <p className="text-sm text-foreground/50 leading-relaxed">{description}</p>
+                  <p className="text-sm text-foreground/65 leading-relaxed">{description}</p>
                 </div>
               </motion.div>
             ))}

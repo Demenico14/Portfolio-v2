@@ -44,9 +44,6 @@ export default function HowWeWorkSection() {
           animate={inView ? "visible" : "hidden"}
           className="mb-16 text-center"
         >
-          <motion.span variants={fadeUp} className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40">
-            Our Process
-          </motion.span>
           <motion.h2 variants={fadeUp} className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl">
             How We Work
           </motion.h2>
@@ -71,11 +68,11 @@ export default function HowWeWorkSection() {
                   aria-hidden="true"
                 />
               )}
-              <div className="relative z-10 flex size-10 items-center justify-center rounded-full border border-border bg-card text-xs font-mono font-semibold text-foreground/50">
+              <div className="relative z-10 flex size-10 items-center justify-center rounded-full border border-border bg-card text-xs font-mono font-semibold text-foreground/65">
                 {number}
               </div>
               <h3 className="font-serif text-base font-semibold text-foreground">{title}</h3>
-              <p className="text-sm text-foreground/55 leading-relaxed">{description}</p>
+              <p className="text-sm text-foreground/65 leading-relaxed">{description}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -19,13 +19,13 @@ export default function PrivacyPolicyPage() {
           <Link href="/" className="flex items-center gap-2">
             <span className="font-serif font-bold text-base text-foreground">MDL</span>
             <span className="h-4 w-px bg-border" />
-            <span className="hidden sm:block font-sans text-xs text-foreground/40 tracking-widest uppercase">
+            <span className="hidden sm:block font-sans text-xs text-foreground/60 tracking-widest uppercase">
               Modern Digital Labs
             </span>
           </Link>
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-foreground/50 hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-foreground/65 hover:text-foreground transition-colors"
           >
             <ArrowLeft className="size-3.5" />
             Back to home
@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
               <dt className="font-medium text-foreground/80">Modern Digital Labs (MDL)</dt>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <dt className="text-foreground/40">Website:</dt>
+              <dt className="text-foreground/60">Website:</dt>
               <dd>
                 <a
                   href="https://moderndigitallabs.co.zw"
@@ -55,11 +55,11 @@ export default function PrivacyPolicyPage() {
               </dd>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <dt className="text-foreground/40">Operating Jurisdiction:</dt>
+              <dt className="text-foreground/60">Operating Jurisdiction:</dt>
               <dd>Zimbabwe</dd>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <dt className="text-foreground/40">Last Updated:</dt>
+              <dt className="text-foreground/60">Last Updated:</dt>
               <dd>25 May 2026</dd>
             </div>
           </dl>

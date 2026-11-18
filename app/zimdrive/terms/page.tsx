@@ -19,7 +19,7 @@ export default function ZimDriveTermsPage() {
         <div className="mb-12">
           <span
             className="inline-flex items-center gap-1.5 mb-5 px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest"
-            style={{ background: "#F9731615", color: "#F97316" }}
+            style={{ background: "#F9731615", color: "#C2410C" }}
           >
             <span className="inline-block size-1.5 rounded-full" style={{ background: "#F97316" }} aria-hidden="true" />
             ZimDrive · Legal
@@ -30,11 +30,11 @@ export default function ZimDriveTermsPage() {
               <dt className="font-medium text-foreground/80">ZimDrive — provided by Modern Digital Labs (MDL)</dt>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <dt className="text-foreground/40">Effective Date:</dt>
+              <dt className="text-foreground/60">Effective Date:</dt>
               <dd>11 May 2026</dd>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <dt className="text-foreground/40">Last Updated:</dt>
+              <dt className="text-foreground/60">Last Updated:</dt>
               <dd>29 May 2026</dd>
             </div>
           </dl>

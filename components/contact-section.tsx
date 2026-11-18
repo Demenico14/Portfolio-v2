@@ -85,12 +85,6 @@ export default function ContactSection() {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40"
-            >
-              Contact
-            </motion.span>
             <motion.h2
               variants={fadeUp}
               className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl"
@@ -113,7 +107,7 @@ export default function ContactSection() {
                   variants={staggerItem}
                   className="flex items-center gap-3 text-sm text-foreground/60"
                 >
-                  <CheckCircle2 className="size-4 text-foreground/40 flex-shrink-0" />
+                  <CheckCircle2 className="size-4 text-foreground/60 flex-shrink-0" />
                   {item}
                 </motion.li>
               ))}
@@ -149,7 +143,7 @@ export default function ContactSection() {
                     <WhatsAppIcon className="size-16" />
                   </motion.div>
 
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-xs font-sans font-semibold tracking-wide text-foreground/50 uppercase">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-xs font-sans font-semibold tracking-wide text-foreground/65 uppercase">
                     <span className="size-1.5 rounded-full bg-[#25D366]" />
                     Available
                   </span>
@@ -159,13 +153,13 @@ export default function ContactSection() {
                 <h3 className="font-serif text-xl font-bold text-foreground mb-2">
                   Chat on WhatsApp
                 </h3>
-                <p className="text-sm text-foreground/55 leading-relaxed mb-7 max-w-xs">
+                <p className="text-sm text-foreground/65 leading-relaxed mb-7 max-w-xs">
                   Send us a message directly — discuss your project, ask
                   questions, or request a quote. No forms, no waiting.
                 </p>
 
                 {/* Number */}
-                <p className="mb-7 font-mono text-xs text-foreground/40 tracking-widest select-all">
+                <p className="mb-7 font-mono text-xs text-foreground/60 tracking-widest select-all">
                   {WHATSAPP_DISPLAY}
                 </p>
 

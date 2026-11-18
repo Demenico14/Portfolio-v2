@@ -18,7 +18,7 @@ export default function ZimDriveDeleteAccountPage() {
         <div className="mb-12">
           <span
             className="inline-flex items-center gap-1.5 mb-5 px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest"
-            style={{ background: "#F9731615", color: "#F97316" }}
+            style={{ background: "#F9731615", color: "#C2410C" }}
           >
             <span className="inline-block size-1.5 rounded-full" style={{ background: "#F97316" }} aria-hidden="true" />
             ZimDrive · Account Deletion

@@ -24,7 +24,7 @@ export default function SiteFooter() {
           <Link href="/#home" className="flex items-center gap-2">
             <span className="font-serif font-bold text-base text-foreground">MDL</span>
             <span className="h-4 w-px bg-border" />
-            <span className="font-sans text-xs text-foreground/40 tracking-widest uppercase">Modern Digital Labs</span>
+            <span className="font-sans text-xs text-foreground/60 tracking-widest uppercase">Modern Digital Labs</span>
           </Link>
 
           {/* Links */}
@@ -34,7 +34,7 @@ export default function SiteFooter() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-xs text-foreground/40 hover:text-foreground transition-colors duration-150"
+                    className="inline-block py-2 text-xs text-foreground/60 hover:text-foreground transition-colors duration-150"
                   >
                     {label}
                   </Link>
@@ -44,7 +44,7 @@ export default function SiteFooter() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-xs text-foreground/30">
+          <p className="text-xs text-foreground/60">
             &copy; 2026 Modern Digital Labs. All rights reserved.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function SiteFooter() {
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-xs text-foreground/40 hover:text-foreground transition-colors duration-150"
+                  className="inline-block py-2 text-xs text-foreground/60 hover:text-foreground transition-colors duration-150"
                 >
                   {label}
                 </Link>

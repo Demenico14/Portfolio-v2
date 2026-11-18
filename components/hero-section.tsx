@@ -28,12 +28,6 @@ export default function HeroSection() {
             animate="visible"
             className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left"
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-white/60 border border-white/20 rounded-full px-4 py-1.5"
-            >
-              Modern Digital Labs
-            </motion.span>
 
             {/* Plain h1 (not animated) so it is visible in the server-rendered HTML and paints immediately for LCP */}
             <h1 className="font-serif mt-3 max-w-3xl text-balance text-4xl sm:text-5xl md:text-6xl lg:mt-5 xl:text-7xl font-bold leading-tight text-white">
@@ -89,7 +83,7 @@ export default function HeroSection() {
           transition={{ delay: 1.0, duration: 0.45, ease: "easeOut" }}
           className="group flex flex-col items-center gap-2 cursor-pointer"
         >
-          <span className="font-sans text-xs tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors duration-150">
+          <span className="font-sans text-xs tracking-widest uppercase text-white/60 group-hover:text-white/80 transition-colors duration-150">
             Scroll
           </span>
           <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-150">

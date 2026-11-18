@@ -101,7 +101,7 @@ function FloatingCard({
         >
           {icon}
         </div>
-        <p className="text-[10px] font-sans font-semibold uppercase tracking-widest text-zinc-400 leading-none mb-0.5">
+        <p className="text-[11px] font-sans font-semibold uppercase tracking-widest text-zinc-500 leading-none mb-0.5">
           {label}
         </p>
         <p className="text-sm font-serif font-bold text-zinc-800 dark:text-zinc-100 leading-tight">
@@ -127,12 +127,6 @@ export default function ProjectsSection() {
           animate={inView ? "visible" : "hidden"}
           className="mb-20 text-center"
         >
-          <motion.span
-            variants={fadeUp}
-            className="inline-block mb-3 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/40"
-          >
-            Selected Work
-          </motion.span>
           <motion.h2
             variants={fadeUp}
             className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl"
@@ -261,22 +255,9 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
           className="mt-16 flex flex-col items-center gap-3 text-center"
         >
-          <div className="flex items-center gap-2">
-            <span
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest"
-              style={{ background: "#F9731615", color: "#F97316" }}
-            >
-              <span
-                className="inline-block size-1.5 rounded-full animate-pulse"
-                style={{ background: "#F97316" }}
-                aria-hidden="true"
-              />
-              Coming Soon
-            </span>
-          </div>
           <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">ZimDrive</h3>
-          <p className="max-w-sm text-sm text-foreground/55 leading-relaxed font-sans">
-            A mobile app helping Zimbabweans ace their VID driving test — with mock exams, daily challenges, and real road rules.
+          <p className="max-w-sm text-sm text-foreground/65 leading-relaxed font-sans">
+            Coming soon to Google Play. A mobile app helping Zimbabweans ace their VID driving test — with mock exams, daily challenges, and real road rules.
           </p>
           <Button
             asChild

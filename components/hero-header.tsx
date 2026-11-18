@@ -48,7 +48,7 @@ export const HeroHeader = ({ onColorPresetChange: _onColorPresetChange }: HeroHe
                         <Link href="#home" className="flex items-center gap-2 shrink-0">
                             <span className={cn('font-serif font-bold text-lg tracking-tight', scrolled ? 'text-foreground' : 'text-white')}>MDL</span>
                             <span className={cn('hidden sm:block h-4 w-px', scrolled ? 'bg-foreground/20' : 'bg-white/30')} />
-                            <span className={cn('hidden sm:block font-sans text-xs tracking-widest uppercase', scrolled ? 'text-foreground/50' : 'text-white/60')}>Modern Digital Labs</span>
+                            <span className={cn('hidden sm:block font-sans text-xs tracking-widest uppercase', scrolled ? 'text-foreground/65' : 'text-white/60')}>Modern Digital Labs</span>
                         </Link>
 
                         {/* Desktop nav links */}
@@ -84,6 +84,8 @@ export const HeroHeader = ({ onColorPresetChange: _onColorPresetChange }: HeroHe
                         <button
                             onClick={() => setMenuState(!menuState)}
                             aria-label={menuState ? 'Close Menu' : 'Open Menu'}
+                            aria-expanded={menuState}
+                            aria-controls="mobile-menu"
                             className="relative z-20 -m-2 p-2 block lg:hidden">
                             {menuState
                                 ? <X className={cn('size-6', scrolled ? 'text-foreground' : 'text-white')} />
@@ -94,7 +96,7 @@ export const HeroHeader = ({ onColorPresetChange: _onColorPresetChange }: HeroHe
 
                     {/* Mobile menu drawer */}
                     {menuState && (
-                        <div className="lg:hidden pb-6 rounded-2xl mb-3 border px-4 pt-4 bg-white/90 backdrop-blur-xl border-black/10">
+                        <div id="mobile-menu" className="lg:hidden pb-6 rounded-2xl mb-3 border px-4 pt-4 bg-white/90 backdrop-blur-xl border-black/10">
                             <ul className="flex flex-col divide-y divide-border">
                                 {menuItems.map((item, index) => (
                                     <li key={index}>
