@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: '%s | Modern Digital Labs',
   },
   description:
-    'Modern Digital Labs (MDL) designs and develops fast, modern, and scalable websites and web applications for businesses, startups, and creators in Zimbabwe and beyond. We also handle domain registration and hosting setup.',
+    'Modern Digital Labs builds fast, modern websites and web apps for businesses in Harare and across Zimbabwe, plus domain registration and hosting setup.',
   applicationName: 'Modern Digital Labs',
   // Google ignores the keywords meta tag; kept short for other engines only.
   keywords: [

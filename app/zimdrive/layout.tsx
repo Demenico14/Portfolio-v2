@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ZimDrive — Zimbabwe VID Test Prep App",
   description:
-    "Pass your Zimbabwe VID driving test with ZimDrive — practice mock exams, road signs, study notes, and daily challenges designed for Zimbabwean learner drivers.",
+    "Pass your Zimbabwe VID driving test with ZimDrive: timed mock exams, road signs, study notes and daily challenges built for Zimbabwean learner drivers.",
   keywords: [
     "ZimDrive",
     "Zimbabwe VID test",

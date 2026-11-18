@@ -6,7 +6,7 @@ import ZimDriveDisclaimer from "@/components/zimdrive-disclaimer";
 export const metadata: Metadata = {
   title: "ZimDrive Terms and Conditions",
   description:
-    "Terms and Conditions for the ZimDrive mobile app by Modern Digital Labs (MDL) — educational use, freemium service, user responsibilities, intellectual property, and liability.",
+    "Terms for the ZimDrive app by Modern Digital Labs: educational use, the freemium service, user responsibilities, intellectual property and liability.",
   alternates: { canonical: "/zimdrive/terms" },
 };
 

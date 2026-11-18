@@ -6,7 +6,7 @@ import ZimDriveDisclaimer from "@/components/zimdrive-disclaimer";
 export const metadata: Metadata = {
   title: "ZimDrive Privacy Policy",
   description:
-    "Privacy Policy for the ZimDrive mobile app by Modern Digital Labs (MDL) — what information the app collects, how it is used, third-party services, and your choices.",
+    "Privacy Policy for the ZimDrive app by Modern Digital Labs: what information the app collects, how it is used, third-party services, and your choices.",
   alternates: { canonical: "/zimdrive/privacy" },
 };
 

@@ -1,0 +1,36 @@
+# Modern Digital Labs
+
+> Modern Digital Labs (MDL) is a web and app development studio based in Harare, Zimbabwe. MDL designs and builds websites and custom web applications for businesses, startups, and creators, and also handles web hosting, domain registration, and ongoing maintenance. MDL also makes ZimDrive, an Android app for practising the Zimbabwe VID provisional driving test.
+
+- Location: Harare, Zimbabwe (serves clients across Zimbabwe)
+- Contact: WhatsApp +263 71 131 4881 (https://wa.me/263711314881)
+- Website: https://moderndigitallabs.co.zw
+
+## Services
+
+- [Website Development](https://moderndigitallabs.co.zw/#services): Responsive websites designed for businesses, brands, and startups.
+- [Web Applications](https://moderndigitallabs.co.zw/#services): Custom systems and applications built around your business requirements, from dashboards to booking systems.
+- [Web Hosting](https://moderndigitallabs.co.zw/#services): Hosting with deployment and setup support.
+- [Domain Registration](https://moderndigitallabs.co.zw/#services): Help securing and configuring domain names, including DNS setup.
+- [Maintenance & Support](https://moderndigitallabs.co.zw/#services): Updates, improvements, and technical support after launch.
+
+## Common questions
+
+- How long does a website take? Most websites are completed within a few days to a few weeks, depending on complexity and features.
+- Does MDL provide hosting? Yes, including full deployment assistance.
+- Does MDL help with domains? Yes: registration, DNS configuration, and setup.
+- Does MDL build custom applications? Yes, tailored web applications for specific business needs.
+- Are websites mobile-friendly? Yes, every site and app is fully responsive.
+- How is pricing determined? By requirements, features, and timeline; MDL gives a custom quote on request via WhatsApp.
+
+## Products
+
+- [ZimDrive](https://moderndigitallabs.co.zw/zimdrive): Android app for Zimbabwean learner drivers preparing for the VID provisional driving test, with timed mock exams, road signs, study notes, a daily challenge, and progress tracking. Coming soon to Google Play; join the waitlist on WhatsApp. ZimDrive is not affiliated with or endorsed by the VID or the Government of Zimbabwe.
+
+## Optional
+
+- [Privacy Policy](https://moderndigitallabs.co.zw/privacy)
+- [Terms & Conditions](https://moderndigitallabs.co.zw/terms)
+- [ZimDrive Privacy Policy](https://moderndigitallabs.co.zw/zimdrive/privacy)
+- [ZimDrive Terms](https://moderndigitallabs.co.zw/zimdrive/terms)
+- [ZimDrive Account Deletion](https://moderndigitallabs.co.zw/zimdrive/delete-account)

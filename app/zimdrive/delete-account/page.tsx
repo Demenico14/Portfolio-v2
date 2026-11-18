@@ -5,7 +5,7 @@ import ZimDriveFooter from "@/components/zimdrive-footer";
 export const metadata: Metadata = {
   title: "ZimDrive — Account & Data Deletion",
   description:
-    "How to delete your ZimDrive account and associated data — in-app or by email — including what is deleted, what is kept, and data retention periods. Developed by Modern Digital Labs (MDL).",
+    "How to delete your ZimDrive account and data, in the app or by email, including what is deleted, what is kept, and how long data is retained.",
   alternates: { canonical: "/zimdrive/delete-account" },
 };
 
