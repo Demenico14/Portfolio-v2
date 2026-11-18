@@ -22,6 +22,11 @@ export default function HeroSection() {
       {/* Hero content — flex-1 fills remaining height; padding clears the fixed navbar */}
       <div className="flex flex-1 items-center overflow-hidden">
         <div className="relative mx-auto w-full max-w-7xl px-6 pt-20 pb-6 sm:pt-28 lg:px-12 lg:pt-36">
+          {/* Soft scrim so white copy stays readable where the bright wave lines pass behind it */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(ellipse_75%_60%_at_50%_58%,rgb(0_0_0/0.65),transparent_75%)] lg:[background:radial-gradient(ellipse_55%_65%_at_30%_55%,rgb(0_0_0/0.45),transparent_75%)]"
+          />
           <motion.div
             variants={staggerContainer}
             initial="hidden"

@@ -20,7 +20,7 @@ const floatingCards = [
       </svg>
     ),
     accent: "#F97316",
-    position: "top-[8%] -left-[14%] md:-left-[18%]",
+    position: "top-[8%] -left-1 sm:-left-[14%] md:-left-[18%]",
     delay: 0,
     yFloat: -6,
   },
@@ -34,7 +34,7 @@ const floatingCards = [
       </svg>
     ),
     accent: "#F97316",
-    position: "top-[22%] -right-[14%] md:-right-[18%]",
+    position: "top-[22%] -right-1 sm:-right-[14%] md:-right-[18%]",
     delay: 0.15,
     yFloat: 8,
   },
@@ -49,7 +49,7 @@ const floatingCards = [
       </svg>
     ),
     accent: "#0D1B2A",
-    position: "bottom-[18%] -left-[14%] md:-left-[18%]",
+    position: "bottom-[18%] -left-1 sm:-left-[14%] md:-left-[18%]",
     delay: 0.3,
     yFloat: -8,
   },
@@ -64,7 +64,7 @@ const floatingCards = [
       </svg>
     ),
     accent: "#0D1B2A",
-    position: "bottom-[18%] -right-[14%] md:-right-[18%]",
+    position: "bottom-[18%] -right-1 sm:-right-[14%] md:-right-[18%]",
     delay: 0.45,
     yFloat: 6,
   },
