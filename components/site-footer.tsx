@@ -3,6 +3,7 @@ import Link from "next/link";
 const footerLinks = [
   { label: "Services", href: "/#services" },
   { label: "Work", href: "/#projects" },
+  { label: "ZimDrive", href: "/zimdrive" },
   { label: "About", href: "/#why-mdl" },
   { label: "Process", href: "/#process" },
   { label: "FAQ", href: "/#faq" },

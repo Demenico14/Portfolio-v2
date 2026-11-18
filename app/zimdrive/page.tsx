@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle2, BookOpen, ClipboardList, MapPin, Zap, Trendin
 import { Button } from "@/components/ui/button";
 import { ZimDriveHeader } from "@/components/zimdrive-header";
 import ZimDriveFooter from "@/components/zimdrive-footer";
+import { ZIMDRIVE_WAITLIST_URL } from "@/lib/whatsapp";
 
 // ─── Motion helpers ───────────────────────────────────────────────────────────
 const fadeUp = {
@@ -158,12 +159,10 @@ export default function ZimDrivePage() {
               Zimbabwe VID Test Prep
             </motion.span>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-balance text-foreground"
-            >
+            {/* Plain h1 (not animated) so it is visible in the server-rendered HTML and paints immediately for LCP */}
+            <h1 className="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-balance text-foreground">
               Pass your VID test with smarter practice.
-            </motion.h1>
+            </h1>
 
             <motion.p
               variants={fadeUp}
@@ -182,8 +181,8 @@ export default function ZimDrivePage() {
                 style={{ background: "#F97316" }}
                 asChild
               >
-                <a href="https://moderndigitallabs.co.zw" target="_blank" rel="noopener noreferrer">
-                  Get the App
+                <a href={ZIMDRIVE_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+                  Join the Waitlist
                   <ArrowRight className="ml-2 size-4" />
                 </a>
               </Button>
@@ -409,33 +408,22 @@ export default function ZimDrivePage() {
                 Start preparing for your VID test today.
               </h3>
               <p className="text-sm text-white/55 leading-relaxed font-sans">
-                ZimDrive is launching soon. Stay up to date at{" "}
-                <a
-                  href="https://moderndigitallabs.co.zw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 underline underline-offset-2 hover:text-white transition-colors"
-                >
-                  moderndigitallabs.co.zw
-                </a>
+                ZimDrive is launching soon on Google Play. Join the waitlist on WhatsApp and we&apos;ll message you the
+                moment it&apos;s live.
               </p>
+              {/* Google Play badge goes here once the Play listing URL exists (badge guidelines require it to link to the listing). */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://moderndigitallabs.co.zw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Coming soon on Google Play"
-                  className="inline-block opacity-90 hover:opacity-100 transition-opacity duration-150"
+                <Button
+                  size="lg"
+                  className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-white w-fit"
+                  style={{ background: "#F97316" }}
+                  asChild
                 >
-                  <Image
-                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                    alt="Get it on Google Play"
-                    width={180}
-                    height={53}
-                    className="h-[53px] w-auto"
-                    unoptimized
-                  />
-                </a>
+                  <a href={ZIMDRIVE_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+                    Join the Waitlist
+                    <ArrowRight className="ml-2 size-4" />
+                  </a>
+                </Button>
               </div>
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-4 pt-2 border-t border-white/10">
@@ -480,33 +468,20 @@ export default function ZimDrivePage() {
               variants={fadeUp}
               className="mt-5 text-base text-white/55 leading-relaxed font-sans"
             >
-              Available soon at{" "}
-              <a
-                href="https://moderndigitallabs.co.zw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/75 underline underline-offset-2 hover:text-white transition-colors"
-              >
-                moderndigitallabs.co.zw
-              </a>
+              Coming soon to Google Play. Join the waitlist and be first to know when it launches.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://moderndigitallabs.co.zw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Coming soon on Google Play"
-                className="inline-block opacity-90 hover:opacity-100 transition-opacity duration-150"
+              <Button
+                size="lg"
+                className="h-12 rounded-full pl-6 pr-5 text-base font-semibold text-white"
+                style={{ background: "#F97316" }}
+                asChild
               >
-                <Image
-                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                  alt="Get it on Google Play"
-                  width={200}
-                  height={59}
-                  className="h-[59px] w-auto"
-                  unoptimized
-                />
-              </a>
+                <a href={ZIMDRIVE_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+                  Join the Waitlist on WhatsApp
+                  <ArrowRight className="ml-2 size-4" />
+                </a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"

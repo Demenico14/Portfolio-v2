@@ -6,8 +6,12 @@ import { staggerContainer, fadeUp, staggerItem } from "@/lib/motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 
-const WHATSAPP_NUMBER = "263711314881"; // +263 71 131 4881
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+
+const WHATSAPP_URL = whatsappLink(
+  "Hi MDL, I'd like to discuss a project. What I need:",
+  "home-contact",
+);
 
 // Inline WhatsApp SVG — official brand mark, no external dependency
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -162,7 +166,7 @@ export default function ContactSection() {
 
                 {/* Number */}
                 <p className="mb-7 font-mono text-xs text-foreground/40 tracking-widest select-all">
-                  +263 711 314 881
+                  {WHATSAPP_DISPLAY}
                 </p>
 
                 {/* CTA button */}

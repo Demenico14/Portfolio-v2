@@ -35,12 +35,10 @@ export default function HeroSection() {
               Modern Digital Labs
             </motion.span>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-serif mt-3 max-w-3xl text-balance text-4xl sm:text-5xl md:text-6xl lg:mt-5 xl:text-7xl font-bold leading-tight text-white"
-            >
+            {/* Plain h1 (not animated) so it is visible in the server-rendered HTML and paints immediately for LCP */}
+            <h1 className="font-serif mt-3 max-w-3xl text-balance text-4xl sm:text-5xl md:text-6xl lg:mt-5 xl:text-7xl font-bold leading-tight text-white">
               Modern websites and digital solutions for growing businesses.
-            </motion.h1>
+            </h1>
 
             <motion.p
               variants={fadeUp}

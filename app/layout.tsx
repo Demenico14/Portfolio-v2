@@ -16,26 +16,13 @@ export const metadata: Metadata = {
   description:
     'Modern Digital Labs (MDL) designs and develops fast, modern, and scalable websites and web applications for businesses, startups, and creators in Zimbabwe and beyond. We also handle domain registration and hosting setup.',
   applicationName: 'Modern Digital Labs',
-  generator: 'v0.app',
+  // Google ignores the keywords meta tag; kept short for other engines only.
   keywords: [
     'Modern Digital Labs',
-    'MDL',
     'web development Zimbabwe',
-    'website design Zimbabwe',
-    'app development Zimbabwe',
-    'web application development',
-    'software development Zimbabwe',
-    'domain registration Zimbabwe',
+    'website design Harare',
     'web hosting Zimbabwe',
-    'Next.js development',
-    'React development',
-    'business website',
-    'startup website',
-    'ecommerce website Zimbabwe',
-    'Harare web developer',
-    'custom software',
-    'mobile app development',
-    'digital agency Zimbabwe',
+    'domain registration Zimbabwe',
   ],
   authors: [{ name: 'Modern Digital Labs', url: 'https://moderndigitallabs.co.zw' }],
   creator: 'Modern Digital Labs',
@@ -85,6 +72,59 @@ export const metadata: Metadata = {
   },
 }
 
+const SITE_URL = 'https://moderndigitallabs.co.zw'
+
+// Organization + WebSite structured data, read by Google, Bing and AI answer engines.
+// Add profile URLs (LinkedIn, Facebook, Clutch, Google Business Profile) to `sameAs` as they are created.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Modern Digital Labs',
+      alternateName: 'MDL',
+      url: SITE_URL,
+      logo: `${SITE_URL}/favicon.jpg`,
+      image: `${SITE_URL}/og-image.png`,
+      description:
+        'Modern Digital Labs designs and develops websites and web applications for businesses in Zimbabwe, and provides domain registration, web hosting, and maintenance.',
+      telephone: '+263711314881',
+      areaServed: [
+        { '@type': 'City', name: 'Harare' },
+        { '@type': 'Country', name: 'Zimbabwe' },
+      ],
+      knowsAbout: [
+        'Website development',
+        'Web application development',
+        'Web hosting',
+        'Domain registration',
+        'Website maintenance',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services',
+        itemListElement: [
+          'Website Development',
+          'Web Applications',
+          'Web Hosting',
+          'Domain Registration',
+          'Maintenance & Support',
+        ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+      },
+      sameAs: [] as string[],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'Modern Digital Labs',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: 'en-ZW',
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,6 +133,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background" style={{ colorScheme: 'light' }}>
       <body className={`font-sans antialiased ${_montserrat.variable} ${_openSans.variable} ${_geistMono.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
         {children}
         <Analytics />
       </body>

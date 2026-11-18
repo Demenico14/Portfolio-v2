@@ -307,8 +307,15 @@ export default function FloatingLines({
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Cap pixel ratio: full-screen fragment shaders cost scale with pixel count.
+    // Phones / data-saver users get 1x, everyone else at most 1.5x.
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+    const isSmallScreen = window.matchMedia('(max-width: 767px)').matches;
+    const maxDpr = saveData || isSmallScreen ? 1 : 1.5;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const renderer = new WebGLRenderer({ antialias: !isSmallScreen, alpha: false, powerPreference: 'low-power' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     containerRef.current.appendChild(renderer.domElement);
@@ -435,8 +442,13 @@ export default function FloatingLines({
     }
 
     let raf = 0;
+    let elapsed = 0;
+    let onScreen = true;
+    let running = false;
+
     const renderLoop = () => {
-      uniforms.iTime.value = clock.getElapsedTime();
+      elapsed += clock.getDelta();
+      uniforms.iTime.value = elapsed;
 
       if (interactive) {
         currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
@@ -452,12 +464,41 @@ export default function FloatingLines({
       }
 
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(renderLoop);
+      if (running) raf = requestAnimationFrame(renderLoop);
     };
-    renderLoop();
+
+    // Only animate while the canvas is on screen and the tab is visible.
+    // With prefers-reduced-motion, draw a single static frame instead.
+    const updateRunning = () => {
+      const shouldRun = !reducedMotion && onScreen && document.visibilityState === 'visible';
+      if (shouldRun && !running) {
+        running = true;
+        clock.getDelta(); // discard time spent paused so the animation doesn't jump
+        raf = requestAnimationFrame(renderLoop);
+      } else if (!shouldRun && running) {
+        running = false;
+        cancelAnimationFrame(raf);
+      }
+    };
+
+    const io =
+      typeof IntersectionObserver !== 'undefined'
+        ? new IntersectionObserver(([entry]) => {
+            onScreen = entry.isIntersecting;
+            updateRunning();
+          })
+        : null;
+    if (io && containerRef.current) io.observe(containerRef.current);
+    document.addEventListener('visibilitychange', updateRunning);
+
+    renderLoop(); // first frame (static frame when reduced motion is on)
+    updateRunning();
 
     return () => {
+      running = false;
       cancelAnimationFrame(raf);
+      io?.disconnect();
+      document.removeEventListener('visibilitychange', updateRunning);
       if (ro && containerRef.current) {
         ro.disconnect();
       }

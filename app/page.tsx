@@ -1,6 +1,14 @@
 "use client";
 
-import FloatingLines from "@/components/floating-lines";
+import dynamic from "next/dynamic";
+
+// three.js is large; load the WebGL background after the page content so it never blocks first paint.
+// The black placeholder matches the shader's background so the white hero text is readable before WebGL loads.
+// (It must not sit *under* the canvas: the canvas uses mix-blend-mode: multiply, and multiplying over black hides the lines.)
+const FloatingLines = dynamic(() => import("@/components/floating-lines"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full bg-black" />,
+});
 import HeroSection from "@/components/hero-section";
 import { HeroHeader } from "@/components/hero-header";
 import ServicesSection from "@/components/services-section";
