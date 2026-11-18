@@ -100,6 +100,8 @@ export function ZimDriveHeader() {
             <button
               onClick={() => setMenuState(!menuState)}
               aria-label={menuState ? "Close Menu" : "Open Menu"}
+              aria-expanded={menuState}
+              aria-controls="zd-mobile-menu"
               className="relative z-20 -m-2 p-2 block lg:hidden"
             >
               {menuState ? (
@@ -112,7 +114,7 @@ export function ZimDriveHeader() {
 
           {/* Mobile drawer */}
           {menuState && (
-            <div className="lg:hidden pb-6 rounded-2xl mb-3 border px-4 pt-4 bg-white border-black/10">
+            <div id="zd-mobile-menu" className="lg:hidden pb-6 rounded-2xl mb-3 border px-4 pt-4 bg-white border-black/10">
               <ul className="flex flex-col divide-y divide-border">
                 {menuItems.map((item, index) => (
                   <li key={index}>

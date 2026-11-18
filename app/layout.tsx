@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist_Mono, Montserrat, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import MotionProvider from '@/components/motion-provider'
 
 const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 const _montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
@@ -137,7 +138,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <Analytics />
       </body>
     </html>

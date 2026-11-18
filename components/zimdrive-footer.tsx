@@ -35,7 +35,7 @@ export default function ZimDriveFooter() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-xs text-white/60 hover:text-white transition-colors duration-150"
+                    className="inline-block py-2 text-xs text-white/60 hover:text-white transition-colors duration-150"
                   >
                     {label}
                   </Link>
