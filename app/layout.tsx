@@ -3,6 +3,7 @@ import { Geist_Mono, Montserrat, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import MotionProvider from '@/components/motion-provider'
+import { SERVICES } from '@/lib/services'
 
 const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 const _montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
@@ -105,13 +106,10 @@ const jsonLd = {
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Services',
-        itemListElement: [
-          'Website Development',
-          'Web Applications',
-          'Web Hosting',
-          'Domain Registration',
-          'Maintenance & Support',
-        ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+        itemListElement: SERVICES.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: s.name, url: `${SITE_URL}/services/${s.slug}` },
+        })),
       },
       sameAs: [] as string[],
     },

@@ -20,30 +20,35 @@ const CHAPTERS = [
   {
     label: "Interface",
     title: "Website Development",
+    href: "/services/website-development",
     statement: "Responsive websites designed for businesses, brands, and startups.",
     detail: "Built using current technologies and development practices, and optimized for desktop, tablet, and mobile devices.",
   },
   {
     label: "Application",
     title: "Web Applications",
+    href: "/services/web-applications",
     statement: "Custom systems and applications built around your business requirements.",
     detail: "From dashboards to booking systems and beyond, designed to support future growth.",
   },
   {
     label: "Code",
     title: "Maintenance & Support",
+    href: "/services/maintenance-support",
     statement: "Updates, improvements, and technical support after launch.",
     detail: "Clear communication and ongoing technical assistance whenever your site needs it.",
   },
   {
     label: "Hosting",
     title: "Web Hosting",
+    href: "/services/web-hosting",
     statement: "Reliable hosting solutions with deployment and setup support.",
     detail: "Web hosting and full deployment assistance to get your site live and running reliably.",
   },
   {
     label: "Domain",
     title: "Domain Registration",
+    href: "/services/domain-registration",
     statement: "Assistance with securing and configuring domain names.",
     detail: "Domain registration, DNS configuration, and full setup so everything works seamlessly.",
   },
@@ -351,6 +356,13 @@ export default function BuildStage() {
               <div className="max-w-[17rem] md:text-right">
                 <h3 className="font-serif text-sm font-semibold uppercase tracking-[0.14em] text-white">{c.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/65">{c.detail}</p>
+                <Link
+                  href={c.href}
+                  className="mono-label pointer-events-auto mt-5 inline-flex items-center gap-2 py-2 text-[11px] text-signal-soft transition-colors hover:text-white"
+                >
+                  Learn more
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>

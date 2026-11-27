@@ -8,11 +8,13 @@
 
 ## Services
 
-- [Website Development](https://moderndigitallabs.co.zw/#services): Responsive websites designed for businesses, brands, and startups.
-- [Web Applications](https://moderndigitallabs.co.zw/#services): Custom systems and applications built around your business requirements, from dashboards to booking systems.
-- [Web Hosting](https://moderndigitallabs.co.zw/#services): Hosting with deployment and setup support.
-- [Domain Registration](https://moderndigitallabs.co.zw/#services): Help securing and configuring domain names, including DNS setup.
-- [Maintenance & Support](https://moderndigitallabs.co.zw/#services): Updates, improvements, and technical support after launch.
+Overview: https://moderndigitallabs.co.zw/services
+
+- [Website Development](https://moderndigitallabs.co.zw/services/website-development): Responsive websites designed for businesses, brands, and startups.
+- [Web Applications](https://moderndigitallabs.co.zw/services/web-applications): Custom systems and applications built around your business requirements, from dashboards to booking systems.
+- [Web Hosting](https://moderndigitallabs.co.zw/services/web-hosting): Hosting with deployment and setup support.
+- [Domain Registration](https://moderndigitallabs.co.zw/services/domain-registration): Help securing and configuring domain names, including DNS setup.
+- [Maintenance & Support](https://moderndigitallabs.co.zw/services/maintenance-support): Updates, improvements, and technical support after launch.
 
 ## Common questions
 

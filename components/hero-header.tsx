@@ -4,14 +4,14 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 const left = [
-    { name: 'Services', href: '#services' },
-    { name: 'Work', href: '#projects' },
+    { name: 'Services', href: '/services' },
+    { name: 'Work', href: '/#projects' },
 ]
 const right = [
-    { name: 'About', href: '#why-mdl' },
-    { name: 'Start a project', href: '#contact' },
+    { name: 'About', href: '/#why-mdl' },
+    { name: 'Start a project', href: '/#contact' },
 ]
-const all = [...left, { name: 'Process', href: '#process' }, { name: 'FAQ', href: '#faq' }, right[0], right[1]]
+const all = [...left, { name: 'Process', href: '/#process' }, { name: 'FAQ', href: '/#faq' }, right[0], right[1]]
 
 /** Reads the data-nav-theme of whatever section sits under the bar. */
 function useNavTheme() {
@@ -89,7 +89,7 @@ export const HeroHeader = () => {
                     ))}
                 </ul>
 
-                <Link href="#home" className="col-start-1 flex items-center gap-3 whitespace-nowrap justify-self-start py-3 lg:col-start-2 lg:justify-self-center" aria-label="Modern Digital Labs, home">
+                <Link href="/" className="col-start-1 flex items-center gap-3 whitespace-nowrap justify-self-start py-3 lg:col-start-2 lg:justify-self-center" aria-label="Modern Digital Labs, home">
                     <span className="font-serif text-[0.95rem] font-bold tracking-[0.02em]">MDL</span>
                     <span className="h-3.5 w-px bg-current opacity-30" />
                     <span className="font-serif text-[0.62rem] font-semibold uppercase tracking-[0.22em] sm:text-[0.7rem] sm:tracking-[0.28em]">Modern Digital Labs</span>

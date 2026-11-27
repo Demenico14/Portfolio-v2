@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { SERVICES } from "@/lib/services";
 
 const footerLinks = [
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Work", href: "/#projects" },
   { label: "ZimDrive", href: "/zimdrive" },
   { label: "About", href: "/#why-mdl" },
@@ -32,7 +33,19 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        <Link href="/#home" aria-label="Modern Digital Labs, back to top" className="block select-none overflow-hidden">
+        <nav aria-label="Services" className="border-t border-ink/15 py-8">
+          <ul className="grid gap-x-8 gap-y-1 sm:grid-cols-2 lg:grid-cols-5">
+            {SERVICES.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="inline-block py-2 font-serif text-sm font-semibold text-ink/80 transition-colors duration-150 hover:text-signal-deep">
+                  {s.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <Link href="/" aria-label="Modern Digital Labs, back to top" className="block select-none overflow-hidden">
           <span className="display block whitespace-nowrap pb-[0.14em] text-[min(9.1vw,8.2rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-ink">
             Modern Digital Labs
           </span>
