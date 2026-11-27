@@ -77,7 +77,8 @@ export const metadata: Metadata = {
 const SITE_URL = 'https://moderndigitallabs.co.zw'
 
 // Organization + WebSite structured data, read by Google, Bing and AI answer engines.
-// Add profile URLs (LinkedIn, Facebook, Clutch, Google Business Profile) to `sameAs` as they are created.
+// `sameAs` links the Google Business Profile and social profiles; add LinkedIn, Clutch etc. as they are created.
+// Keep openingHoursSpecification in step with the hours on the Google Business Profile.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -111,7 +112,19 @@ const jsonLd = {
           itemOffered: { '@type': 'Service', name: s.name, url: `${SITE_URL}/services/${s.slug}` },
         })),
       },
-      sameAs: [] as string[],
+      hasMap: 'https://www.google.com/maps?cid=15712830638902247552',
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '17:00',
+        },
+      ],
+      sameAs: [
+        'https://www.google.com/maps?cid=15712830638902247552',
+        'https://www.facebook.com/profile.php?id=61571312122255',
+      ],
     },
     {
       '@type': 'WebSite',
