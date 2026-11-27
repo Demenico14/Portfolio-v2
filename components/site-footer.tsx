@@ -17,53 +17,41 @@ const legalLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          {/* Brand */}
-          <Link href="/#home" className="flex items-center gap-2">
-            <span className="font-serif font-bold text-base text-foreground">MDL</span>
-            <span className="h-4 w-px bg-border" />
-            <span className="font-sans text-xs text-foreground/60 tracking-widest uppercase">Modern Digital Labs</span>
-          </Link>
-
-          {/* Links */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap items-center justify-center gap-6">
-              {footerLinks.map(({ label, href }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="inline-block py-2 text-xs text-foreground/60 hover:text-foreground transition-colors duration-150"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Copyright */}
-          <p className="text-xs text-foreground/60">
-            &copy; 2026 Modern Digital Labs. All rights reserved.
-          </p>
-        </div>
-
-        {/* Legal links */}
-        <nav aria-label="Legal navigation" className="mt-8 border-t border-border pt-6">
-          <ul className="flex flex-wrap items-center justify-center gap-6">
-            {legalLinks.map(({ label, href }) => (
+    <footer data-nav-theme="light" className="bg-paper text-ink">
+      <div className="mx-auto max-w-[90rem] px-6 lg:px-12">
+        <nav aria-label="Footer navigation" className="border-t border-ink/15 py-8">
+          <ul className="flex flex-wrap gap-x-8 gap-y-1">
+            {footerLinks.map(({ label, href }, i) => (
               <li key={label}>
-                <Link
-                  href={href}
-                  className="inline-block py-2 text-xs text-foreground/60 hover:text-foreground transition-colors duration-150"
-                >
+                <Link href={href} className="mono-label inline-flex gap-2 py-2 text-[11px] text-ink/70 transition-colors duration-150 hover:text-ink">
+                  <span className="text-ink/40">[{String(i + 1).padStart(2, "0")}]</span>
                   {label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
+
+        <Link href="/#home" aria-label="Modern Digital Labs, back to top" className="block select-none overflow-hidden">
+          <span className="display block whitespace-nowrap pb-[0.14em] text-[min(9.1vw,8.2rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-ink">
+            Modern Digital Labs
+          </span>
+        </Link>
+
+        <div className="flex flex-col gap-4 border-t border-ink/15 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="mono-label text-[10px] text-ink/60">&copy; 2026 Modern Digital Labs. All rights reserved.</p>
+          <nav aria-label="Legal navigation">
+            <ul className="flex gap-6">
+              {legalLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="mono-label inline-block py-2 text-[10px] text-ink/60 transition-colors hover:text-ink">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </footer>
   );

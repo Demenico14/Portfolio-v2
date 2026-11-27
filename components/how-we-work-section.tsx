@@ -1,81 +1,57 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useInView } from "react-intersection-observer";
-import { staggerContainer, staggerItem, fadeUp } from "@/lib/motion";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 
 const steps = [
-  {
-    number: "01",
-    title: "Planning",
-    description:
-      "Understanding your goals and project requirements.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description:
-      "Creating clean and user-friendly layouts.",
-  },
-  {
-    number: "03",
-    title: "Development",
-    description:
-      "Building and testing the final product.",
-  },
-  {
-    number: "04",
-    title: "Launch",
-    description:
-      "Deployment, hosting setup, and support.",
-  },
+  { title: "Planning", description: "Understanding your goals and project requirements." },
+  { title: "Design", description: "Creating clean and user-friendly layouts." },
+  { title: "Development", description: "Building and testing the final product." },
+  { title: "Launch", description: "Deployment, hosting setup, and support." },
 ];
 
+/** The process drawn as a measuring rule: the fill advances as the section scrolls through. */
 export default function HowWeWorkSection() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.55"] });
+  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
   return (
-    <section id="process" className="py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12" ref={ref}>
-        {/* Header */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mb-16 text-center"
-        >
-          <motion.h2 variants={fadeUp} className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl">
-            How We Work
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 mx-auto max-w-xl text-foreground/60 text-base leading-relaxed">
+    <section id="process" data-nav-theme="dark" className="relative bg-stage-deep pb-28 text-white md:pb-40">
+      <div aria-hidden="true" className="stage-columns pointer-events-none absolute inset-0" />
+      <div className="relative mx-auto max-w-[90rem] px-6 lg:px-12">
+        <div className="flex flex-col gap-4 border-t border-white/10 pt-16 md:flex-row md:items-end md:justify-between md:pt-24">
+          <h2 className="display text-4xl md:text-5xl">How we work</h2>
+          <p className="max-w-sm text-sm leading-relaxed text-white/60 md:text-right">
             A transparent, collaborative process designed to deliver results from day one.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Steps */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {steps.map(({ number, title, description }, idx) => (
-            <motion.div key={number} variants={staggerItem} className="relative flex flex-col gap-4">
-              {/* Connector line on desktop */}
-              {idx < steps.length - 1 && (
-                <div
-                  className="absolute top-5 left-10 hidden h-px w-full bg-border lg:block"
-                  aria-hidden="true"
-                />
-              )}
-              <div className="relative z-10 flex size-10 items-center justify-center rounded-full border border-border bg-card text-xs font-mono font-semibold text-foreground/65">
-                {number}
-              </div>
-              <h3 className="font-serif text-base font-semibold text-foreground">{title}</h3>
-              <p className="text-sm text-foreground/65 leading-relaxed">{description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div ref={ref} className="relative mt-16 md:mt-24">
+          {/* Rule: minor ticks every 2.5%, major ticks at each step */}
+          <div aria-hidden="true" className="relative hidden h-6 md:block">
+            <div
+              className="absolute inset-x-0 bottom-0 h-3"
+              style={{
+                backgroundImage: "linear-gradient(to right, rgb(191 219 254 / 0.28) 1px, transparent 1px)",
+                backgroundSize: "2.5% 100%",
+              }}
+            />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-white/20" />
+            <motion.div style={{ scaleX: fill }} className="absolute inset-x-0 bottom-0 h-px origin-left bg-signal-soft" />
+          </div>
+
+          <ol className="grid gap-10 md:grid-cols-4 md:gap-0">
+            {steps.map(({ title, description }, i) => (
+              <li key={title} className="relative md:pr-10">
+                <span aria-hidden="true" className="absolute -top-6 left-0 hidden h-6 w-px bg-blueprint/70 md:block" />
+                <p className="mono-label text-[11px] text-signal-soft md:mt-5">[{String(i + 1).padStart(2, "0")}]</p>
+                <h3 className="display mt-3 text-2xl">{title}</h3>
+                <p className="mt-2 max-w-[16rem] text-sm leading-relaxed text-white/60">{description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
