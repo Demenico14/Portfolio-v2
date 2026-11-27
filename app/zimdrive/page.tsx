@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, BookOpen, ClipboardList, MapPin, Zap, TrendingUp, RotateCcw } from "lucide-react";
@@ -10,11 +10,11 @@ import ZimDriveFooter from "@/components/zimdrive-footer";
 import { ZIMDRIVE_WAITLIST_URL } from "@/lib/whatsapp";
 
 // ─── Motion helpers ───────────────────────────────────────────────────────────
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 };
