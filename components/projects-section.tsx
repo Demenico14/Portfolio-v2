@@ -1,276 +1,116 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { useInView } from "react-intersection-observer";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { staggerContainer, fadeUp } from "@/lib/motion";
-import { Button } from "@/components/ui/button";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 
-const floatingCards = [
-  {
-    id: "pass-mark",
-    label: "Pass Mark",
-    value: "23 / 25",
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="size-4" aria-hidden="true">
-        <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M7 10.5l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    accent: "#F97316",
-    position: "top-[8%] -left-1 sm:-left-[14%] md:-left-[18%]",
-    delay: 0,
-    yFloat: -6,
-  },
-  {
-    id: "daily-challenge",
-    label: "Daily Challenge",
-    value: "Today's pick",
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="size-4" aria-hidden="true">
-        <path d="M10 2v2M10 16v2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M2 10h2M16 10h2M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    accent: "#F97316",
-    position: "top-[22%] -right-1 sm:-right-[14%] md:-right-[18%]",
-    delay: 0.15,
-    yFloat: 8,
-  },
-  {
-    id: "mock-exams",
-    label: "Mock Exams",
-    value: "16 available",
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="size-4" aria-hidden="true">
-        <rect x="4" y="3" width="12" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M7 7h6M7 10h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    accent: "#0D1B2A",
-    position: "bottom-[18%] -left-1 sm:-left-[14%] md:-left-[18%]",
-    delay: 0.3,
-    yFloat: -8,
-  },
-  {
-    id: "road-rules",
-    label: "Road Rules",
-    value: "20 questions",
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="size-4" aria-hidden="true">
-        <path d="M10 3v14M7 3l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="3" y="14" width="14" height="3" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
-    accent: "#0D1B2A",
-    position: "bottom-[18%] -right-1 sm:-right-[14%] md:-right-[18%]",
-    delay: 0.45,
-    yFloat: 6,
-  },
-];
+const features = [
+  { label: "Pass mark", value: "23 / 25", side: "left", top: "16%" },
+  { label: "Daily challenge", value: "Today's pick", side: "right", top: "28%" },
+  { label: "Mock exams", value: "16 available", side: "left", top: "62%" },
+  { label: "Road rules", value: "20 questions", side: "right", top: "74%" },
+] as const;
 
-function FloatingCard({
-  label,
-  value,
-  icon,
-  accent,
-  position,
-  delay,
-  yFloat,
-  inView,
-}: (typeof floatingCards)[number] & { inView: boolean }) {
-  const prefersReduced = useReducedMotion();
-
+function Hotspot({ label, value, side, top }: (typeof features)[number]) {
+  const left = side === "left";
   return (
-    <motion.div
-      className={`absolute ${position} z-20 w-36 md:w-40`}
-      initial={{ opacity: 0, x: position.includes("left") ? -20 : 20 }}
-      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: position.includes("left") ? -20 : 20 }}
-      transition={{ duration: 0.55, delay: 0.6 + delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+    <div
+      className={`absolute hidden items-center gap-3 md:flex ${left ? "left-0 flex-row" : "right-0 flex-row-reverse text-right"}`}
+      style={{ top }}
     >
-      <motion.div
-        animate={prefersReduced ? {} : { y: [0, yFloat, 0] }}
-        transition={{ duration: 3.5 + delay, repeat: Infinity, ease: "easeInOut" }}
-        className="rounded-2xl border border-black/10 bg-white/90 backdrop-blur-md shadow-xl px-3.5 py-3"
-        style={{ boxShadow: `0 8px 32px 0 rgba(0,0,0,0.10), 0 1.5px 0 0 ${accent}22` }}
-      >
-        <div
-          className="mb-2 flex size-7 items-center justify-center rounded-xl"
-          style={{ background: accent, color: "#fff" }}
-        >
-          {icon}
-        </div>
-        <p className="text-[11px] font-sans font-semibold uppercase tracking-widest text-zinc-500 leading-none mb-0.5">
-          {label}
+      <div>
+        <p className="mono-label text-[11px] text-white/70">
+          <span className="text-signal-soft">[+]</span> {label}
         </p>
-        <p className="text-sm font-serif font-bold text-zinc-800 dark:text-zinc-100 leading-tight">
-          {value}
-        </p>
-      </motion.div>
-    </motion.div>
+        <p className="display mt-1 text-lg text-white">{value}</p>
+      </div>
+      <span aria-hidden="true" className="h-px w-10 bg-blueprint/40 lg:w-20" />
+      <span aria-hidden="true" className="hotspot-dot block size-[10px] shrink-0 rounded-full border border-blueprint/80" />
+    </div>
   );
 }
 
 export default function ProjectsSection() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
-  const prefersReduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const smooth = useSpring(scrollYProgress, { stiffness: 90, damping: 26, mass: 0.5 });
+  const rotateY = useTransform(smooth, [0, 0.5, 1], reduce ? [0, 0, 0] : [-22, -4, 14]);
+  const rotateX = useTransform(smooth, [0, 0.5, 1], reduce ? [0, 0, 0] : [10, 4, -4]);
+  const y = useTransform(smooth, [0, 1], reduce ? [0, 0] : [60, -60]);
 
   return (
-    <section id="projects" className="py-24 md:py-32 border-t border-border overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12" ref={ref}>
+    <section id="projects" data-nav-theme="dark" className="relative overflow-hidden bg-stage-deep pb-28 text-white md:pb-40">
+      <div aria-hidden="true" className="stage-columns pointer-events-none absolute inset-0" />
+      <div className="relative mx-auto grid max-w-[90rem] gap-16 border-t border-white/10 px-6 pt-16 md:pt-24 lg:grid-cols-12 lg:px-12">
+        <div className="lg:col-span-4 lg:self-center">
+          <h2 className="display text-balance text-4xl leading-[1.05] md:text-5xl">Built by Modern Digital Labs</h2>
+          <p className="mt-6 max-w-sm leading-relaxed text-white/65">
+            Real products shipped for real users. ZimDrive is our first public mobile app, with more launches coming soon.
+          </p>
+          <div className="mt-10 border-t border-white/10 pt-6">
+            <h3 className="display text-2xl">ZimDrive</h3>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/60">
+              Coming soon to Google Play. A mobile app helping Zimbabweans ace their VID driving test, with mock exams, daily challenges, and real road rules.
+            </p>
+            <Link href="/zimdrive" className="btn-solid mt-6">
+              View ZimDrive
+              <ArrowRight className="size-3.5" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
 
-        {/* Section header */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="mb-20 text-center"
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="font-serif text-3xl font-bold text-balance text-foreground md:text-4xl xl:text-5xl"
-          >
-            Built by Modern Digital Labs
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="mt-4 mx-auto max-w-xl text-foreground/60 text-base leading-relaxed"
-          >
-            Real products shipped for real users. ZimDrive is our first public mobile app — more launches coming soon.
-          </motion.p>
-        </motion.div>
+        <div ref={ref} className="relative mx-auto h-[600px] w-full max-w-[44rem] md:h-[700px] lg:col-span-8" style={{ perspective: 1400 }}>
+          {/* Registration frame */}
+          <div aria-hidden="true" className="absolute inset-x-[18%] inset-y-[4%] hidden md:block">
+            {["left-0 top-0 border-l border-t", "right-0 top-0 border-r border-t", "left-0 bottom-0 border-l border-b", "right-0 bottom-0 border-r border-b"].map((c) => (
+              <span key={c} className={`absolute size-4 border-blueprint/50 ${c}`} />
+            ))}
+            <span className="mono-label absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-blueprint/70">390 × 844</span>
+          </div>
 
-        {/* Hero mockup */}
-        <div className="relative flex justify-center items-center min-h-[600px] md:min-h-[700px]">
-
-          {/* Ambient glow */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            aria-hidden="true"
-          >
-            <div
-              className="w-[340px] h-[480px] md:w-[420px] md:h-[560px] rounded-full blur-[90px]"
-              style={{ background: "radial-gradient(ellipse, #F9731640 0%, #F9731610 55%, transparent 75%)" }}
-            />
-          </motion.div>
-
-          {/* Floating feature cards */}
-          {floatingCards.map((card) => (
-            <FloatingCard key={card.id} {...card} inView={inView} />
+          {features.map((f) => (
+            <Hotspot key={f.label} {...f} />
           ))}
 
-          {/* Phone mockup */}
           <motion.div
-            initial={{ opacity: 0, y: 40, rotateX: 8, rotateY: -6 }}
-            animate={inView ? { opacity: 1, y: 0, rotateX: 6, rotateY: -4 } : {}}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={{ perspective: 1200, transformStyle: "preserve-3d" }}
-            className="relative z-10"
+            style={{ rotateY, rotateX, y, transformStyle: "preserve-3d" }}
+            className="absolute left-1/2 top-1/2 -ml-[120px] -mt-[260px] w-[240px] md:-ml-[135px] md:-mt-[292px] md:w-[270px]"
           >
-            {/* Continuous float */}
-            <motion.div
-              animate={prefersReduced ? {} : { y: [0, -10, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ transformStyle: "preserve-3d" }}
+            <div
+              className="relative rounded-[3rem] p-[10px] pb-[14px]"
+              style={{
+                background: "linear-gradient(160deg, #2a3550, #10172a 55%)",
+                boxShadow: "0 0 0 1px rgb(191 219 254 / 0.25), 0 40px 80px -20px rgb(0 0 0 / 0.7), 0 10px 30px rgb(30 64 175 / 0.25)",
+              }}
             >
-              {/* Drop shadow beneath phone */}
-              <div
-                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[200px] h-[28px] rounded-full blur-2xl"
-                style={{ background: "rgba(249,115,22,0.22)" }}
-                aria-hidden="true"
-              />
-
-              {/* Phone frame */}
-              <div
-                className="relative w-[240px] md:w-[270px] rounded-[3.2rem] overflow-hidden"
-                style={{
-                  background: "#18181b",
-                  boxShadow: `
-                    0 0 0 1.5px #3f3f46,
-                    0 0 0 3px #27272a,
-                    0 30px 80px rgba(0,0,0,0.55),
-                    0 8px 24px rgba(0,0,0,0.3),
-                    inset 0 0 0 1px rgba(255,255,255,0.04)
-                  `,
-                  padding: "10px 10px 14px",
-                }}
-              >
-                {/* Top notch bar */}
-                <div className="relative z-10 flex justify-center items-center h-7 mb-1">
-                  {/* Dynamic island */}
-                  <div
-                    className="h-5 w-20 rounded-full"
-                    style={{ background: "#09090b" }}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* App screenshot */}
-                <div className="relative overflow-hidden rounded-[2.2rem]" style={{ aspectRatio: "9/19.5" }}>
-                  <Image
-                    src="/zimdrive-app.png"
-                    alt="ZimDrive app screenshot showing exam readiness and daily challenge features"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 240px, 270px"
-                    priority
-                  />
-                </div>
-
-                {/* Home indicator */}
-                <div className="flex justify-center mt-3" aria-hidden="true">
-                  <div className="w-20 h-1 rounded-full bg-black/20" />
-                </div>
+              <div className="flex h-7 items-center justify-center" aria-hidden="true">
+                <div className="h-5 w-20 rounded-full bg-[#05070d]" />
               </div>
-
-              {/* Phone side button highlights (left) */}
-              <div
-                className="absolute left-[-3px] top-[30%] w-[3px] h-8 rounded-l-full"
-                style={{ background: "linear-gradient(180deg, #3f3f46, #52525b)" }}
-                aria-hidden="true"
-              />
-              <div
-                className="absolute left-[-3px] top-[44%] w-[3px] h-12 rounded-l-full"
-                style={{ background: "linear-gradient(180deg, #3f3f46, #52525b)" }}
-                aria-hidden="true"
-              />
-              {/* Right power button */}
-              <div
-                className="absolute right-[-3px] top-[36%] w-[3px] h-14 rounded-r-full"
-                style={{ background: "linear-gradient(180deg, #3f3f46, #52525b)" }}
-                aria-hidden="true"
-              />
-            </motion.div>
+              <div className="relative overflow-hidden rounded-[2.2rem]" style={{ aspectRatio: "9/19.5" }}>
+                <Image
+                  src="/zimdrive-app.png"
+                  alt="ZimDrive app screenshot showing exam readiness and daily challenge features"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 240px, 270px"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
 
-        {/* Project label row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
-          className="mt-16 flex flex-col items-center gap-3 text-center"
-        >
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">ZimDrive</h3>
-          <p className="max-w-sm text-sm text-foreground/65 leading-relaxed font-sans">
-            Coming soon to Google Play. A mobile app helping Zimbabweans ace their VID driving test — with mock exams, daily challenges, and real road rules.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="mt-2 h-11 rounded-full pl-6 pr-4 text-sm font-semibold bg-foreground text-background hover:bg-foreground/85"
-          >
-            <Link href="/zimdrive">
-              <span>View ZimDrive</span>
-              <ArrowRight className="ml-2 size-4" />
-            </Link>
-          </Button>
-        </motion.div>
-
+        {/* Feature list for small screens, where the hotspots don't fit */}
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[3px] bg-white/10 md:hidden">
+          {features.map((f) => (
+            <div key={f.label} className="bg-stage-deep p-4">
+              <dt className="mono-label text-[10px] text-white/60">{f.label}</dt>
+              <dd className="display mt-1 text-base">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

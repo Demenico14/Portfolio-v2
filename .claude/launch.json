@@ -2,6 +2,17 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "mdl-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "next",
+        "dev",
+        "-p",
+        "3124"
+      ],
+      "port": 3124
+    },
+    {
       "name": "next-start",
       "runtimeExecutable": "npx",
       "runtimeArgs": [

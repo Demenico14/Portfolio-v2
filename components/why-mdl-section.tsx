@@ -5,93 +5,47 @@ import { useInView } from "react-intersection-observer";
 import { staggerContainer, fadeUp } from "@/lib/motion";
 
 const reasons = [
-  {
-    index: "01",
-    title: "Modern Development",
-    description:
-      "Built using current technologies and development practices.",
-  },
-  {
-    index: "02",
-    title: "Responsive Design",
-    description:
-      "Optimized for desktop, tablet, and mobile devices.",
-  },
-  {
-    index: "03",
-    title: "Reliable Support",
-    description:
-      "Clear communication and ongoing technical assistance.",
-  },
-  {
-    index: "04",
-    title: "Scalable Solutions",
-    description:
-      "Systems designed to support future growth.",
-  },
+  { title: "Modern Development", description: "Built using current technologies and development practices." },
+  { title: "Responsive Design", description: "Optimized for desktop, tablet, and mobile devices." },
+  { title: "Reliable Support", description: "Clear communication and ongoing technical assistance." },
+  { title: "Scalable Solutions", description: "Systems designed to support future growth." },
 ];
 
 export default function WhyMdlSection() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="why-mdl" className="py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12" ref={ref}>
-
-        {/* Header row */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex flex-col gap-4 mb-16 md:flex-row md:items-end md:justify-between"
-        >
-          <div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl font-bold text-balance text-foreground md:text-5xl xl:text-6xl">
-              Why Work<br />With MDL?
-            </motion.h2>
-          </div>
-          <motion.p variants={fadeUp} className="max-w-xs text-sm text-foreground/65 leading-relaxed md:text-right">
+    <section id="why-mdl" data-nav-theme="dark" className="relative bg-stage-deep py-28 text-white md:py-40">
+      <div aria-hidden="true" className="stage-columns pointer-events-none absolute inset-0" />
+      <motion.div
+        ref={ref}
+        variants={staggerContainer}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="relative mx-auto grid max-w-[90rem] gap-16 px-6 lg:grid-cols-12 lg:px-12"
+      >
+        <div className="lg:col-span-5">
+          <motion.h2 variants={fadeUp} className="display text-balance text-4xl leading-[1.05] md:text-6xl">
+            Why work with MDL?
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-6 max-w-sm leading-relaxed text-white/65">
             Our approach is simple: build products that are functional, modern, and easy to use.
           </motion.p>
-        </motion.div>
+        </div>
 
-        {/* Reason rows */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex flex-col"
-        >
-          {reasons.map(({ index, title, description }, i) => (
-            <motion.div
-              key={title}
-              variants={fadeUp}
-              custom={i}
-              className="group grid grid-cols-[3rem_1fr] md:grid-cols-[6rem_1fr_auto] items-start md:items-center gap-x-6 md:gap-12 py-8 border-t border-border last:border-b hover:bg-card/40 transition-colors duration-300 px-4 -mx-4 rounded-xl"
-            >
-              {/* Index */}
-              <span className="font-serif text-sm font-semibold text-accent tabular-nums pt-1 md:pt-0">
-                {index}
-              </span>
-
-              {/* Title + description stacked on mobile, title only on md+ */}
-              <div className="flex flex-col gap-1 md:gap-0">
-                <h3 className="font-serif text-xl font-semibold text-foreground md:text-2xl group-hover:text-foreground transition-colors duration-300">
-                  {title}
-                </h3>
-                <p className="block md:hidden text-sm text-foreground/65 leading-relaxed">
-                  {description}
-                </p>
-              </div>
-
-              {/* Description — right-aligned, desktop only */}
-              <p className="hidden md:block text-sm text-foreground/65 leading-relaxed text-right max-w-xs">
-                {description}
-              </p>
+        <dl className="grid gap-px overflow-hidden rounded-[3px] bg-white/10 sm:grid-cols-2 lg:col-span-7">
+          {reasons.map(({ title, description }) => (
+            <motion.div key={title} variants={fadeUp} className="group relative bg-stage-deep p-7 md:p-9">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+              />
+              <dt className="display text-xl md:text-2xl">{title}</dt>
+              <dd className="mt-3 text-sm leading-relaxed text-white/60">{description}</dd>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </dl>
+      </motion.div>
     </section>
   );
 }
