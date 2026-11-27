@@ -1,6 +1,26 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "next-start", "runtimeExecutable": "npx", "runtimeArgs": ["next", "start", "-p", "3123"], "port": 3123 }
+    {
+      "name": "next-start",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "next",
+        "start",
+        "-p",
+        "3123"
+      ],
+      "port": 3123
+    },
+    {
+      "name": "vettly-dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "/Users/admin/Documents/GitHub/vettly",
+        "dev"
+      ],
+      "port": 3000
+    }
   ]
 }
